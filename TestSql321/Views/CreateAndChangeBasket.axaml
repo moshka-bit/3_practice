@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:TestSql321.ViewModels"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="TestSql321.CreateAndChangeBasket"
+        x:DataType="vm:MainWindowViewModel"
+		Title="CreateAndChangeBasket">
+	<Grid Margin="10">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0"/>
+			<ColumnDefinition Width="20"/>
+			<ColumnDefinition Width="400"/>
+		</Grid.ColumnDefinitions>
+
+		<StackPanel Grid.Column="2" Spacing="10">
+			
+			<TextBlock Text="User:"/>
+			<ComboBox ItemsSource="{Binding Users}" Name="ComboIdUser">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding FullName}" FontWeight="Bold" Width="150"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+
+			<TextBlock Text="Item:"/>
+			<ComboBox ItemsSource="{Binding Items}" Name="ComboItems">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding ItemName}" FontWeight="Bold"  Width="150"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+
+			<TextBlock Text="Count:"/>
+			<TextBox Name="CountText"/>
+
+			<Button Content="Save" HorizontalAlignment="Right"
+					Click="Button_Click" Margin="0,20,0,0"/>
+		</StackPanel>
+	</Grid>
+</Window>

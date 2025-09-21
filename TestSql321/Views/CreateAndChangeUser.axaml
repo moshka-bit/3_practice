@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:TestSql321.ViewModels"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="TestSql321.CreateAndChangeUser"
+        x:DataType="vm:MainWindowViewModel"
+		Title="CreateAndChangeUser">
+	<Grid Margin="10">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="20"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<StackPanel Grid.Column="0" Spacing="10">
+			<TextBlock Text="Full Name:"/>
+			<TextBox Name="FullNameText"/>
+
+			<TextBlock Text="Phone Number:"/>
+			<TextBox Name="PhoneNumberText"/>
+
+			<TextBlock Text="Description:"/>
+			<TextBox Name="DescriptionText" Height="100"/>
+		</StackPanel>
+
+		<StackPanel Grid.Column="2" Spacing="10">
+			<TextBlock Text="Login:"/>
+			<TextBox Name="Login1"/>
+
+			<TextBlock Text="Password:"/>
+			<TextBox Name="Password"/>
+
+			<TextBlock Text="Role:"/>
+			<ComboBox ItemsSource="{Binding Roles}" Name="ComboRole">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding RoleName}" FontWeight="Bold" />
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+
+			<Button Content="Save" HorizontalAlignment="Right"
+					Click="Button_Click" Margin="0,20,0,0"/>
+		</StackPanel>
+	</Grid>
+</Window>
